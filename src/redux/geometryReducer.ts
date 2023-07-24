@@ -24,7 +24,7 @@ export const counterSlice = createSlice({
             const { decoded } = action.payload;
             state.decoded = decoded;
         },
-        getState: (state) => {
+        getState: (state, action: PayloadAction<{ coordinates: number[][] }>) => {
             return state;
         },
     },

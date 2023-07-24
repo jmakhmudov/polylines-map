@@ -47,9 +47,14 @@ const App: React.FC = () => {
 
   const handleClick = (record: DataType) => {
     const { point1, point2, point3 } = record;
-    dispatch(getState({
-      coordinates: [point1.split(", ").map(parseFloat), point2.split(", ").map(parseFloat), point3.split(", ").map(parseFloat)]
-    }));
+    
+    const coordinates = [
+      point1.split(', ').map(parseFloat),
+      point2.split(', ').map(parseFloat),
+      point3.split(', ').map(parseFloat),
+    ];
+
+    dispatch(getState({coordinates}));
     dispatch(setMarkers({point1, point2, point3}));
   };
 
