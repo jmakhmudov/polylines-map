@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-leaflet';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { RootState } from '../redux/store';
-import markerIconPng from "leaflet/dist/images/marker-icon.png"
-import {Icon} from 'leaflet'
+import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import {Icon} from 'leaflet';
 
 
 function ChangeView({ center, zoom }: { center: LatLngExpression; zoom: number }) {

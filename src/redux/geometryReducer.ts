@@ -18,7 +18,7 @@ export const counterSlice = createSlice({
     reducers: {
         setGeometry: (state, action: PayloadAction<Geometry>) => {
             const { geometry } = action.payload.routes[0];
-            state.geometry = geometry
+            state.geometry = geometry;
         },
         setDecoded: (state, action) => {
             const { decoded } = action.payload;

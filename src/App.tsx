@@ -4,7 +4,6 @@ import Map from './components/Map';
 import TableComp from './components/TableComp';
 
 function App() {
-  
 
   return (
     <main>
