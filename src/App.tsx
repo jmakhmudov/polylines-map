@@ -1,6 +1,7 @@
+import 'leaflet/dist/leaflet.css';
 import './App.css';
-import TableComp from './components/TableComp';
 import Map from './components/Map';
+import TableComp from './components/TableComp';
 
 function App() {
   
