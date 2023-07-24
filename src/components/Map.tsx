@@ -1,9 +1,9 @@
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
-import { MapContainer, Marker, Polyline, Popup, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-leaflet';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { RootState } from '../redux/store';
-import L from 'leaflet';
 
 const Map = () => {
     const [decodedPolyline, setDecodedPolyline] = useState<[[number, number]]>([[0, 0]]);
@@ -11,11 +11,17 @@ const Map = () => {
     const { decoded } = useSelector((state: RootState) => state.geometry);
     const { point1, point2, point3 } = useSelector((state: RootState) => state.markers);
 
+    function ChangeView() {
+        const map = useMap();
+        map.setView(mapCenter, 12);
+        return null;
+    }   
+
     useEffect(() => {
         if (decoded.length > 1) {
             const bounds = L.latLngBounds(decoded);
             const center = bounds.getCenter();
-            console.log(center)
+
             setMapCenter([center.lat, center.lng]);
             setDecodedPolyline(decoded);
         }
@@ -45,6 +51,7 @@ const Map = () => {
 
     return (
         <MapContainer center={mapCenter} className='map' zoom={12} style={{ height: '400px' }}>
+            <ChangeView center={mapCenter} zoom={12} />
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Polyline positions={decodedPolyline} color="blue" />
             {
