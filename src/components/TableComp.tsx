@@ -43,11 +43,11 @@ const data: DataType[] = [
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
-  const { geometry, decoded } = useSelector((state: RootState) => state.geometry);
+  const { geometry } = useSelector((state: RootState) => state.geometry);
 
   const handleClick = (record: DataType) => {
     const { point1, point2, point3 } = record;
-    
+
     const coordinates = [
       point1.split(', ').map(parseFloat),
       point2.split(', ').map(parseFloat),
