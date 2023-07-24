@@ -16,9 +16,9 @@ export function* handleGetGeometry(action: PayloadAction<CoordinatesProps>): any
     try {
         const { coordinates } = action.payload;
 
-        const start = `${coordinates[0][0]},${coordinates[0][1]}`;
-        const end = `${coordinates[2][0]},${coordinates[2][1]}`;
-        const waypoints = coordinates.slice(1, -1).map(coord => `${coord[0]},${coord[1]}`).join(';');
+        const start = `${coordinates[0][1]},${coordinates[0][0]}`;
+        const end = `${coordinates[2][1]},${coordinates[2][0]}`;
+        const waypoints = coordinates.slice(1, -1).map(coord => `${coord[1]},${coord[0]}`).join(';');
 
         const url = `https://router.project-osrm.org/route/v1/driving/${start};${waypoints};${end}?overview=full&geometries=polyline`
 

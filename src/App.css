@@ -1,0 +1,18 @@
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.map {
+    width: 50dvw;
+}
+
+@media screen and (max-width: 1000px) {
+    main {
+        flex-direction: column-reverse;
+    }
+
+    .map {
+        width: 100dvw;
+    }
+}

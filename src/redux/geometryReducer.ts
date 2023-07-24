@@ -3,11 +3,13 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 interface Geometry {
     [x: string]: any;
-    geometry: string
+    geometry: string;
+    decoded: [[number, number]]
 }
 
 const initialState: Geometry = {
-    geometry: ''
+    geometry: '',
+    decoded: [[0, 0]]
 };
 
 export const counterSlice = createSlice({
@@ -18,14 +20,15 @@ export const counterSlice = createSlice({
             const { geometry } = action.payload.routes[0];
             state.geometry = geometry
         },
-        getGeometry: (state) => {
-            return state;
+        setDecoded: (state, action) => {
+            const { decoded } = action.payload;
+            state.decoded = decoded;
         },
-        resetState: (state) => {
-            return initialState;
+        getState: (state) => {
+            return state;
         },
     },
 });
 
-export const { setGeometry, getGeometry, resetState } = counterSlice.actions;
+export const { setGeometry, getState, setDecoded } = counterSlice.actions;
 export default counterSlice.reducer;

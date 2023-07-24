@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import geometryReducer from './geometryReducer';
 import { watcherSaga } from '../sagas/rootSaga';
+import markersReducer from './markersReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -9,7 +10,8 @@ const middleware = [sagaMiddleware];
 
 export const store = configureStore({
   reducer: {
-    geometry: geometryReducer
+    geometry: geometryReducer,
+    markers: markersReducer
   },
   middleware: [...middleware]
 });
