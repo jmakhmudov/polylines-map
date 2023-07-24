@@ -1,5 +1,5 @@
 import 'leaflet/dist/leaflet.css';
-import './App.css';
+import './App.scss';
 import Map from './components/Map';
 import TableComp from './components/TableComp';
 
