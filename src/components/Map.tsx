@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-leaflet';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { RootState } from '../redux/store';
+import markerIconPng from "leaflet/dist/images/marker-icon.png"
+import {Icon} from 'leaflet'
+
 
 function ChangeView({ center, zoom }: { center: LatLngExpression; zoom: number }) {
     const map = useMap();
@@ -56,7 +59,7 @@ const Map = () => {
             {
                 markers[0].description !== '' ?
                     markers.map(marker => (
-                        <Marker key={marker.id} position={marker.position}>
+                        <Marker key={marker.id} position={marker.position} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
                             <Popup>
                                 <h3>{marker.title}</h3>
                                 <p>{marker.description}</p>
